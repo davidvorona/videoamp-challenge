@@ -23,7 +23,7 @@
 // ];
 
 // for compatability across browsers / webpages
-(function() {
-  console.log('Chillin.')
-  document.getElementsByTagName('body')[0].style.setProperty('font-family', 'serif', 'important');
-}());
+;(function() {
+  console.log("Test log.");
+  document.getElementsByTagName("body")[0].style.setProperty("font-family", "serif", "important");
+})();
