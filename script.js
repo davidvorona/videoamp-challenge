@@ -23,7 +23,6 @@
 // ];
 
 // for compatability across browsers / webpages
-;(function() {
-  console.log("Test log.");
+(function() {
   document.getElementsByTagName("body")[0].style.setProperty("font-family", "serif", "important");
-})();
+}());
