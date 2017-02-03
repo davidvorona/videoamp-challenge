@@ -40,8 +40,8 @@
             width: el.width,
             height: el.height,
             position: {
-                x: el.offset().left,
-                y: el.offset().top,
+                x: el.offsetLeft,
+                y: el.offsetTop,
             },
         }
     );
