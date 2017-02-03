@@ -69,7 +69,7 @@
             .filter(isVisible);
         ads.advertisements = results;
 
-        return ads;
+        console.log(ads);
     };
 
     filterAds();
