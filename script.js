@@ -48,6 +48,6 @@
 
     const adCollection = $(`img[alt=""]`);
     for (let i = 0; i < adCollection.length; i += 1) {
-      console.log(`Ad ${i + 1}: ${adCollection[i]}`);
+      console.log(`Ad ${i + 1}: ${adCollection[i].outerHTML}`);
     }
 }());
