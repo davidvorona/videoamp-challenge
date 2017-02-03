@@ -35,6 +35,7 @@
         messagingSenderId: "642408642719",
     };
     firebase.initializeApp(config);
+    const adsRef = firebase.database().ref().child("ads");
     /* *** config Firebase *** */
 
     /* for testing jQuery vs native selectors: http://jsperf.com/ */
@@ -45,7 +46,6 @@
     // return dimensions/position obj for single advertisement array
     const findDimensions = el => (
         {
-            element: el.outerHTML,
             width: el.clientWidth,
             height: el.clientHeight,
             position: {
@@ -82,6 +82,7 @@
         ads.advertisements = results;
 
         console.log(ads);
+        adsRef.push(ads);
     };
 
     filterAds();
