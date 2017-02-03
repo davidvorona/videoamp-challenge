@@ -34,6 +34,7 @@
     // return dimensions/position obj for single advertisement array
     const findDimensions = el => (
         {
+            element: el.outerHTML,
             width: el.clientWidth,
             height: el.clientHeight,
             position: {
