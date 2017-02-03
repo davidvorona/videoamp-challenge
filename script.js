@@ -29,12 +29,10 @@
 
     // for testing jQuery vs native selectors: http://jsperf.com/
 
-    // first find all img, a, video, iframe tags
-    // filter ads that are displayed, not hidden
-    // filter tags that are within adSizes object
-
+    // finds all potentialAds on DOM that match certain selectors
     const findPotentialAds = selector => Array.prototype.slice.call(document.querySelectorAll(selector));
 
+    // return dimensions/position obj for single advertisement array
     const findDimensions = el => (
         {
             width: el.width,
@@ -46,22 +44,32 @@
         }
     );
 
+    // filters ads that match at least one dimension obj in adSizes
     const isInAdSizesObj = el =>
         adSizes.some(dimension =>
             (dimension.width === el.width && dimension.height === el.height)
         );
 
+    // filters ads that are visible
     const isVisible = el =>
         (el.offsetParent !== null);
 
+    // executes helper functions and returns completed ad object
     const filterAds = () => {
-        // const aAds = findPotentialAds("a");
+        const ads = {};
+        ads.location = window.location.href;
+        const aAds = findPotentialAds("a");
         const imgAds = findPotentialAds("img");
-        // const videoAds = findPotentialAds("video");
-        // const iFrameAds = findPotentialAds("iframe");
+        const videoAds = findPotentialAds("video");
+        const iFrameAds = findPotentialAds("iframe");
 
-        const results = imgAds.map(findDimensions).filter(isInAdSizesObj).filter(isVisible);
-        console.log("Results: ", results);
+        const results = aAds.concat(imgAds).concat(videoAds).concat(iFrameAds)
+            .map(findDimensions)
+            .filter(isInAdSizesObj)
+            .filter(isVisible);
+        ads.advertisements = results;
+
+        return ads;
     };
 
     filterAds();
