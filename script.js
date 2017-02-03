@@ -50,10 +50,10 @@
     // filter ads that are displayed, not hidden
     // filter tags that are within adSizes object
 
-    const findPotentialAds = selector => $(selector).find();
+    const findPotentialAds = selector => document.querySelectorAll(selector);
 
     const imgAds = findPotentialAds("img");
-    console.log(imgAds);
+    console.log("imgAds: ", imgAds);
 
     // const adCollection = $(`img[alt=""]`);
     // for (let i = 0; i < adCollection.length; i += 1) {
