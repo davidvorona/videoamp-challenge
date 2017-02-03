@@ -43,19 +43,21 @@
 
     const isInAdSizesObj = (width, height) => {
         return adSizes.some((findDimensions(width, height)));
-    }
+    };
 
     const isVisible = () => {
         console.log("Will filter visible ads.");
-    }
+    };
 
     const filterAds = () => {
-        const aAds = findPotentialAds("a");
+        // const aAds = findPotentialAds("a");
         const imgAds = findPotentialAds("img");
-        const videoAds = findPotentialAds("video");
-        const iFrameAds = findPotentialAds("iframe");
+        // const videoAds = findPotentialAds("video");
+        // const iFrameAds = findPotentialAds("iframe");
 
-        const results = aAds.map(findDimensions);
+        const results = imgAds.map(findDimensions);
         console.log("Results: ", results);
     };
+
+    filterAds();
 }());
