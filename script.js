@@ -27,7 +27,7 @@
     ];
     /* *** adSizes boilerplate *** */
 
-    // for testing jQuery vs native selectors: http://jsperf.com/
+    /* for testing jQuery vs native selectors: http://jsperf.com/ */
 
     // finds all potentialAds on DOM that match certain selectors
     const findPotentialAds = selector => Array.prototype.slice.call(document.querySelectorAll(selector));
