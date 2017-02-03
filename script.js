@@ -50,13 +50,18 @@
     // filter ads that are displayed, not hidden
     // filter tags that are within adSizes object
 
-    const findPotentialAds = selector => document.querySelectorAll(selector);
+    const findPotentialAds = selector => Array.prototype.slice.call(document.querySelectorAll(selector));
 
+    const aAds = findPotentialAds("a");
     const imgAds = findPotentialAds("img");
+    const videoAds = findPotentialAds("video");
+    const iFrameAds = findPotentialAds("iframe");
     console.log("imgAds: ", imgAds);
+    console.log("single imgAd: ", imgAds[0]);
+    console.log("single imgAd width: ", imgAds[0].width);
 
-    // const adCollection = $(`img[alt=""]`);
-    // for (let i = 0; i < adCollection.length; i += 1) {
-    //   console.log(`Ad ${i + 1}: ${adCollection[i].outerHTML}`);
-    // }
+    const findDimensions = (ad) => {
+      console.log('Will return dimension of each ad from array of potentials.');
+    };
+
 }());
