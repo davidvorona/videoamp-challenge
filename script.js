@@ -39,6 +39,10 @@
         {
             width: el.width,
             height: el.height,
+            position: {
+                x: el.offset().left,
+                y: el.offset().top,
+            },
         }
     );
 
@@ -47,9 +51,8 @@
             (dimension.width === el.width && dimension.height === el.height)
         );
 
-    const isVisible = () => {
-        console.log("Will filter visible ads.");
-    };
+    const isVisible = el =>
+        (el.offsetParent !== null);
 
     const filterAds = () => {
         // const aAds = findPotentialAds("a");
@@ -57,7 +60,7 @@
         // const videoAds = findPotentialAds("video");
         // const iFrameAds = findPotentialAds("iframe");
 
-        const results = imgAds.map(findDimensions).filter(isInAdSizesObj);
+        const results = imgAds.map(findDimensions).filter(isInAdSizesObj).filter(isVisible);
         console.log("Results: ", results);
     };
 
