@@ -26,6 +26,17 @@
     ];
     /* *** adSizes boilerplate *** */
 
+    /* *** config Firebase *** */
+    const config = {
+        apiKey: "AIzaSyC1yPZRZw12CGKZlY2xByWOocLJgp-gTdc",
+        authDomain: "videoamp-challenge-d2d59.firebaseapp.com",
+        databaseURL: "https://videoamp-challenge-d2d59.firebaseio.com",
+        storageBucket: "videoamp-challenge-d2d59.appspot.com",
+        messagingSenderId: "642408642719",
+    };
+    firebase.initializeApp(config);
+    /* *** config Firebase *** */
+
     /* for testing jQuery vs native selectors: http://jsperf.com/ */
 
     // finds all potentialAds on DOM that match certain selectors
