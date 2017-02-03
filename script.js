@@ -23,6 +23,7 @@
       { width: 120, height: 90 },
       { width: 125, height: 125 },
       { width: 120, height: 600 },
+      { width: 139, height: 92 },
     ];
     /* *** adSizes boilerplate *** */
 
@@ -41,9 +42,10 @@
         }
     );
 
-    const isInAdSizesObj = (width, height) => {
-        return adSizes.some((findDimensions(width, height)));
-    };
+    const isInAdSizesObj = el =>
+        adSizes.some(dimension =>
+            (dimension.width === el.width && dimension.height === el.height)
+        );
 
     const isVisible = () => {
         console.log("Will filter visible ads.");
@@ -55,7 +57,7 @@
         // const videoAds = findPotentialAds("video");
         // const iFrameAds = findPotentialAds("iframe");
 
-        const results = imgAds.map(findDimensions);
+        const results = imgAds.map(findDimensions).filter(isInAdSizesObj);
         console.log("Results: ", results);
     };
 
