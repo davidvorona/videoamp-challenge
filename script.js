@@ -46,8 +46,17 @@
 
     // for testing jQuery vs native selectors: http://jsperf.com/
 
-    const adCollection = $(`img[alt=""]`);
-    for (let i = 0; i < adCollection.length; i += 1) {
-      console.log(`Ad ${i + 1}: ${adCollection[i].outerHTML}`);
-    }
+    // first find all img, a, video, iframe tags
+    // filter ads that are displayed, not hidden
+    // filter tags that are within adSizes object
+
+    const findPotentialAds = selector => $(selector).find();
+
+    const imgAds = findPotentialAds("img");
+    console.log(imgAds);
+
+    // const adCollection = $(`img[alt=""]`);
+    // for (let i = 0; i < adCollection.length; i += 1) {
+    //   console.log(`Ad ${i + 1}: ${adCollection[i].outerHTML}`);
+    // }
 }());
