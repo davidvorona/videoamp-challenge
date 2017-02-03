@@ -23,7 +23,6 @@
       { width: 120, height: 90 },
       { width: 125, height: 125 },
       { width: 120, height: 600 },
-      { width: 139, height: 92 },
     ];
     /* *** adSizes boilerplate *** */
 
@@ -35,8 +34,8 @@
     // return dimensions/position obj for single advertisement array
     const findDimensions = el => (
         {
-            width: el.width,
-            height: el.height,
+            width: el.clientWidth,
+            height: el.clientHeight,
             position: {
                 x: el.offsetLeft,
                 y: el.offsetTop,
@@ -57,7 +56,6 @@
     // executes helper functions and returns completed ad object
     const filterAds = () => {
         const ads = {};
-        ads.location = window.location.href;
         const aAds = findPotentialAds("a");
         const imgAds = findPotentialAds("img");
         const videoAds = findPotentialAds("video");
@@ -67,6 +65,8 @@
             .map(findDimensions)
             .filter(isInAdSizesObj)
             .filter(isVisible);
+
+        ads.location = window.location.href;
         ads.advertisements = results;
 
         console.log(ads);
