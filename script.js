@@ -46,6 +46,6 @@
 
     // for testing jQuery vs native selectors: http://jsperf.com/
 
-    console.log("jQuery: ", $(`img[alt=""]`));
+    console.log("jQuery: ", $(`img[alt="Advertisement"]`));
     // console.log("Native selector: ", document.querySelector(`img[alt="Advertisement"]`));
 }());
