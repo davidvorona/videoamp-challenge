@@ -46,8 +46,8 @@
     // return dimensions/position obj for single advertisement array
     const findDimensions = el => (
         {
-            width: el.width,
-            height: el.height,
+            width: el.clientWidth,
+            height: el.clientHeight,
             position: {
                 x: el.offsetLeft,
                 y: el.offsetTop,
@@ -68,16 +68,13 @@
     // executes helper functions and returns completed ad object
     const filterAds = () => {
         const ads = {};
+        const divAds = findPotentialAds("div");
         const aAds = findPotentialAds("a");
-        console.log("a", aAds);
         const imgAds = findPotentialAds("img");
-        console.log("imgAds", imgAds);
         const videoAds = findPotentialAds("video");
-        console.log("videoAds", videoAds);
         const iFrameAds = findPotentialAds("iframe");
-        console.log("iFrameAds", iFrameAds);
 
-        const results = aAds.concat(imgAds).concat(videoAds).concat(iFrameAds)
+        const results = divAds.concat(aAds).concat(imgAds).concat(videoAds).concat(iFrameAds)
             .map(findDimensions)
             .filter(isInAdSizesObj)
             .filter(isVisible);
