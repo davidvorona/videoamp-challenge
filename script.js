@@ -68,8 +68,8 @@
     // executes helper functions and returns completed ad object
     const filterAds = () => {
         let ads = {};
-        const aAds = findPotentialAds("a");
-        const imgAds = findPotentialAds("img");
+        const aAds = findPotentialAds("a > img");
+        const imgAds = findPotentialAds("img > a");
         const videoAds = findPotentialAds("video");
         const iFrameAds = findPotentialAds("iframe");
 
@@ -82,7 +82,7 @@
         ads.advertisements = results;
 
         console.log(ads);
-        adsRef.push(ads);
+        if (ads.advertisements.length > 0) adsRef.push(ads);
     };
 
     filterAds();
