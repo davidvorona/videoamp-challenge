@@ -68,13 +68,13 @@
     // executes helper functions and returns completed ad object
     const filterAds = () => {
         const ads = {};
-        const divAds = findPotentialAds("div");
         const aAds = findPotentialAds("a");
         const imgAds = findPotentialAds("img");
+        const canvasAds = findPotentialAds("canvas");
         const videoAds = findPotentialAds("video");
         const iFrameAds = findPotentialAds("iframe");
 
-        const results = divAds.concat(aAds).concat(imgAds).concat(videoAds).concat(iFrameAds)
+        const results = aAds.concat(imgAds).concat(canvasAds).concat(videoAds).concat(iFrameAds)
             .map(findDimensions)
             .filter(isInAdSizesObj)
             .filter(isVisible);
