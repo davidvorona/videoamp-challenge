@@ -67,7 +67,7 @@
 
     // executes helper functions and returns completed ad object
     const filterAds = () => {
-        const ads = {};
+        let ads = {};
         const aAds = findPotentialAds("a");
         const imgAds = findPotentialAds("img");
         const videoAds = findPotentialAds("video");
@@ -80,6 +80,7 @@
 
         ads.location = window.location.href;
         ads.advertisements = results;
+        ads = JSON.stringify(ads);
 
         console.log(ads);
         adsRef.push(ads);
