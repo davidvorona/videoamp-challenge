@@ -1,4 +1,3 @@
-// for compatability across browsers / webpages
 (function() {
     /* *** adSizes boilerplate *** */
     const adSizes = [
