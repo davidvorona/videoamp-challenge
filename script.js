@@ -80,7 +80,6 @@
 
         ads.location = window.location.href;
         ads.advertisements = results;
-        ads = JSON.stringify(ads);
 
         console.log(ads);
         adsRef.push(ads);
