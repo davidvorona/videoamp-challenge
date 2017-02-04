@@ -68,8 +68,9 @@
     // executes helper functions and returns completed ad object
     const filterAds = () => {
         let ads = {};
-        const aAds = findPotentialAds("a > img");
-        const imgAds = findPotentialAds("img > a");
+        const aAds = findPotentialAds("a");
+        const imgAds = findPotentialAds("img");
+        console.log('Test: ', imgAds);
         const videoAds = findPotentialAds("video");
         const iFrameAds = findPotentialAds("iframe");
 
@@ -82,6 +83,7 @@
         ads.advertisements = results;
 
         console.log(ads);
+        // currently triggers a CSP error that has no effect on reading/writing data to db
         if (ads.advertisements.length > 0) adsRef.push(ads);
     };
 
