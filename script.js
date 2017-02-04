@@ -67,12 +67,15 @@
 
     // executes helper functions and returns completed ad object
     const filterAds = () => {
-        let ads = {};
+        const ads = {};
         const aAds = findPotentialAds("a");
+        console.log("a", aAds);
         const imgAds = findPotentialAds("img");
-        console.log('Test: ', imgAds);
+        console.log("imgAds", imgAds);
         const videoAds = findPotentialAds("video");
+        console.log("videoAds", videoAds);
         const iFrameAds = findPotentialAds("iframe");
+        console.log("iFrameAds", iFrameAds);
 
         const results = aAds.concat(imgAds).concat(videoAds).concat(iFrameAds)
             .map(findDimensions)
@@ -83,7 +86,7 @@
         ads.advertisements = results;
 
         console.log(ads);
-        // currently triggers a CSP error that has no effect on reading/writing data to db
+        // currently triggers a CSP error that has no effect on reading/writing data to firebase
         if (ads.advertisements.length > 0) adsRef.push(ads);
     };
 
